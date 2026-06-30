@@ -1,4 +1,4 @@
-
+CREATE DATABASE college_db;
 USE college_db;
 CREATE TABLE departments (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +14,15 @@ CREATE TABLE students (
     date_of_birth DATE,
     department_id INT,
     enrollment_year INT,
+    FOREIGN KEY (department_id)
+        REFERENCES departments(department_id)
+);
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_name VARCHAR(150) NOT NULL,
+    course_code VARCHAR(20) UNIQUE,
+    credits INT,
+    department_id INT,
     FOREIGN KEY (department_id)
         REFERENCES departments(department_id)
 );
@@ -37,4 +46,4 @@ CREATE TABLE professors (
     FOREIGN KEY (department_id)
         REFERENCES departments(department_id)
 );
-
+SHOW TABLES;
